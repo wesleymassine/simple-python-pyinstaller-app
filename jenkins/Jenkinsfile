@@ -40,10 +40,10 @@ pipeline {
             }
             post {
                 success {
-                    slackSend color: "good", message: "The build ${BUILD_NUMBER} has been completed successfully"
+                    slackSend color: "good", message: "The build ${BUILD_NUMBER} has been Tested - check log for details"
                 }
                 failure {
-                    slackSend color: "red", message: "The build ${BUILD_NUMBER} has thrown an error - check console output for more details"
+                    slackSend color: "red", message: "The test execution found some error - check console output for more details"
                 }
                 always {
                     junit 'test-reports/results.xml'
